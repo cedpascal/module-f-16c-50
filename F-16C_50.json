@@ -2804,6 +2804,21 @@
                                                                   }
                                             },
                                     "EHSI": {
+                                                  "EHSI_CURRENT_CRS": {
+                                                                                   "category": "EHSI",
+                                                                               "control_type": "display",
+                                                                                "description": "EHSI Current CRS",
+                                                                                 "identifier": "EHSI_CURRENT_CRS",
+                                                                                     "inputs": [ ],
+                                                                                    "outputs": [ {
+                                                                                                   "address": 17508,
+                                                                                               "description": "EHSI Current CRS",
+                                                                                                "max_length": 3,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "string"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
                                                     "EHSI_CRS_SET": {
                                                                                 "api_variant": "momentary_last_position",
                                                                                    "category": "EHSI",

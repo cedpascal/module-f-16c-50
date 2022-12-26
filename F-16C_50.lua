@@ -446,6 +446,20 @@ definePushButton("EHSI_HDG_SET_BTN", 28, 3003, 42,"EHSI" , "EHSI HDG Set Button"
 defineRotary("EHSI_HDG_SET_KNB", 28, 3002, 44, "EHSI", "EHSI HDG Set Knob")
 definePushButton("EHSI_MODE", 28, 3001, 46,"EHSI" , "EHSI Mode (M) Button")
 
+local EHSI_CURRENT_CRS
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	local ehsi = parse_indication(13)
+	EHSI_CURRENT_CRS = "   "
+	if not ehsi then
+		return
+	end
+	EHSI_CURRENT_CRS = coerce_nil_to_string(ehsi["Course Indicator Value"])
+
+end
+
+defineString("EHSI_CURRENT_CRS", function() return EHSI_CURRENT_CRS end, 3, "EHSI", "EHSI Current CRS")
+
 --Clock
 defineRotary("CLOCK_WIND", 51, 3002, 625, "Clock", "Clock Wind")
 definePushButton("CLOCK_SET", 51, 3001, 626, "Clock", "Clock Setting Knob")
